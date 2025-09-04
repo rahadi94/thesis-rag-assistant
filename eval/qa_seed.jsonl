@@ -1,0 +1,12 @@
+{"id": 1, "question": "What directory should PDFs be placed in before ingestion?", "answer": "Place PDFs in the data directory (data/)."}
+{"id": 2, "question": "Which embeddings model is used for indexing and retrieval?", "answer": "The model sentence-transformers/all-MiniLM-L6-v2 is used."}
+{"id": 3, "question": "What is the default chunk size and overlap during ingestion?", "answer": "Chunk size is 2000 characters with 300 characters overlap."}
+{"id": 4, "question": "Which vector store is used to persist the index?", "answer": "FAISS is used and saved under storage/."}
+{"id": 5, "question": "How do you build the FAISS index from PDFs?", "answer": "Run: python src/ingest.py"}
+{"id": 6, "question": "Where is the FAISS index saved?", "answer": "In the storage/ directory."}
+{"id": 7, "question": "How many documents are retrieved per query by default?", "answer": "The retriever uses MMR with k=4 documents."}
+{"id": 8, "question": "Which LLM backend is used for generation?", "answer": "Ollama is used via the OLLAMA_MODEL set in .env (default: llama3)."}
+{"id": 9, "question": "How do you configure the local LLM endpoint?", "answer": "Set OLLAMA_BASE_URL (default http://localhost:11434) in the .env file."}
+{"id": 10, "question": "What should the model do if it doesn't know the answer?", "answer": "It should say it does not know and avoid fabricating information."}
+{"id": 11, "question": "How are sources cited in the generated answer?", "answer": "Sources should be cited in the format [source: page]."}
+{"id": 12, "question": "How do you run a quick RAG test from the CLI?", "answer": "python -c \"import sys; sys.path.append('src'); from rag import answer; print(answer('What is this project about?')[0])\""}
