@@ -4,8 +4,9 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from sentence_transformers import SentenceTransformer
+from langchain.embeddings.base import Embeddings
 
-DATA_DIR = "data"
+DATA_DIR = "data"   
 STORE_DIR = "storage"
 EMB_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
@@ -26,7 +27,6 @@ def build_index(chunks):
     model = SentenceTransformer(EMB_MODEL)
     def embed(texts): return model.encode(texts, normalize_embeddings=True).tolist()
     # Wrap as LangChain Embeddings-like
-    from langchain.embeddings.base import Embpeddings
     class SBERT(Embeddings):
         def embed_documents(self, texts): return embed(texts)
         def embed_query(self, text): return embed([text])[0]

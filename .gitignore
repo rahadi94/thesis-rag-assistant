@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Environment files
+.env
+.env.*
+
+# Editors/IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Project artifacts
+storage/
+# Or if you want to keep storage folder but ignore contents, use:
+# storage/*
+# !storage/.gitkeep
+
+# Data files (avoid committing large PDFs)
+data/*.pdf
+# Optional: ignore other heavy/temporary data
+data/*.log
+data/*.tmp
+data/*.cache
+
+# FAISS/embeddings
+storage/*.faiss
+storage/*.pkl
+storage/*.npy
+storage/*.json
